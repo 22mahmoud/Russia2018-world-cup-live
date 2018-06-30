@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
+import todayMatches from './todayMatches';
+
 const rootReducers = combineReducers({
-  no1: () => ({}),
+  todayMatches,
 });
 
 export default rootReducers;

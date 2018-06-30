@@ -1,9 +1,15 @@
 import React from 'react';
+import { Router } from '@reach/router';
+
+import { Home } from './routes';
+
+const Dashboard = () => <h1> Dashboard </h1>;
 
 const App = () => (
-  <div>
-    <h1> HI </h1>
-  </div>
+  <Router>
+    <Home path="/" />
+    <Dashboard path="/dashboard" />
+  </Router>
 );
 
 export default App;

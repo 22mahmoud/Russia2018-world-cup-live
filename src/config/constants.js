@@ -1,3 +1,3 @@
 export default {
-  m: 1,
+  API_BASE_URL: 'https://worldcup.sfg.io',
 };

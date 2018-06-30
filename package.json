@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@reach/router": "^1.1.1",
+    "axios": "^0.18.0",
+    "moment-timezone": "^0.5.21",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
