@@ -1,6 +1,5 @@
 import React from 'react';
 import { Router } from '@reach/router';
-
 import { Home } from './routes';
 
 const Dashboard = () => <h1> Dashboard </h1>;

@@ -1,7 +1,11 @@
 import React from 'react';
-import moment from 'moment-timezone';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+
 import { getTodayMatches } from '../actions';
+import TodayMatchs from '../component/todayMatches/todayMatchesCard';
+import { Flex } from '../ui/flex';
+import { Loading } from '../ui/global';
 
 class HomeRoute extends React.Component {
   async componentDidMount() {
@@ -13,26 +17,17 @@ class HomeRoute extends React.Component {
       todayMatches: { loading, matches },
     } = this.props;
     if (loading) {
-      return <h1> loading.... </h1>;
+      return (
+        <div style={{ height: '100vh', display: 'flex' }}>
+          <Loading />
+        </div>
+      );
     }
+
     return (
-      <div>
-        {matches.map(match => (
-          <div
-            key={match.fifa_id}
-            style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}
-          >
-            <p> {match.home_team.country} </p>
-            <p> {match.home_team.goals} </p>
-
-            <p>{match.status}</p>
-            <p> {moment.tz(match.datetime, moment.tz.guess()).calendar()} </p>
-
-            <p> {match.away_team.goals} </p>
-            <p> {match.away_team.country} </p>
-          </div>
-        ))}
-      </div>
+      <Flex justify="space-between">
+        {matches.map(match => <TodayMatchs key={match.fifa_id} {...match} />)}
+      </Flex>
     );
   }
 }
